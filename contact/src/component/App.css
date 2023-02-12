@@ -1,0 +1,22 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+  font-weight: bold;
+}
+
+input {
+  size: 10px;
+}
+
+#s_button {
+  margin-top: 25px;
+  background-color:dodgerblue;
+  color: white;
+  border-style: none;
+  width: 60px;
+  height: 45px;
+  border-radius: 8px;
+}
