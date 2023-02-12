@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import './App.css';
 import { Header } from './Header';
 import AddContact from './addContact';
+import ContactList from './contactList';
 
 function App() {
   const [contacts, setContacts] = useState([])
 
   const AddHandler = (contact) => {
-    console.log(contact)
     setContacts([...contacts, contact])
     console.log(contacts)
   }
@@ -16,6 +16,7 @@ function App() {
     <div>
       <Header />
       <AddContact AddHandler = {AddHandler} />
+      <ContactList contacts = {contacts} />
     </div>
   );
 }
