@@ -9,7 +9,6 @@ class AddContact extends React.Component {
 
 
     render (){
-
         const add = (event) => {
             event.preventDefault();
 

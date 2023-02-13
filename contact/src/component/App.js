@@ -9,9 +9,17 @@ function App() {
   const storedData = JSON.parse(localStorage.getItem(storageKey))
   const [contacts, setContacts] = useState(storedData? storedData : [])
 
-
+  // Add contact in list
   const AddHandler = (contact) => {
     setContacts([...contacts, contact])
+  }
+
+  // Delete contact from list
+  const DeleteHandler = (id) => {
+    const newList = contacts.filter((contact) => {
+      return contact.id !== id
+    })
+    setContacts(newList)
   }
 
   // store data in local storage
@@ -21,7 +29,7 @@ function App() {
     <div>
       <Header />
       <AddContact AddHandler = {AddHandler} />
-      <ContactList contacts = {contacts} />
+      <ContactList contacts = {contacts} DeleteHandler = {DeleteHandler}/>
     </div>
   );
 }
