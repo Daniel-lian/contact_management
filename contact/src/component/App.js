@@ -1,16 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import { Header } from './Header';
 import AddContact from './addContact';
 import ContactList from './contactList';
 
 function App() {
-  const [contacts, setContacts] = useState([])
+  const storageKey = 'contacts'
+  const storedData = JSON.parse(localStorage.getItem(storageKey))
+  const [contacts, setContacts] = useState(storedData? storedData : [])
+
 
   const AddHandler = (contact) => {
     setContacts([...contacts, contact])
-    console.log(contacts)
   }
+
+  // store data in local storage
+  useEffect(() => {localStorage.setItem(storageKey, JSON.stringify(contacts))}, [contacts])
 
   return (
     <div>
